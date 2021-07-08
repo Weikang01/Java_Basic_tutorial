@@ -3,35 +3,25 @@ import java.util.Scanner;
 
 public class Main
 {
-    static int lowerBound = 0;
-    static int upperBound = 15;
+    static void PrintPrime()
+    {
+        long start = System.currentTimeMillis();
+        int count = 0;
+
+        Label:for (int i = 2; i < 100000; i++)
+        {
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0)
+                    continue Label;
+            }
+            count ++;
+        }
+        System.out.println("\nCount: " + count + "\nTime: " + (System.currentTimeMillis() - start));
+    }
 
     public static void main(String[] args)
     {
-        int val = getRandomNumber();
-        System.out.println("Guess the random number. The number is around " + lowerBound + " to " + (upperBound + 1) + ": ");
-        int in;
-        while (true)
-        {
-            in = getInput();
-            if (in == val)
-                break;
-            System.out.println("The number is not correct!");
-        }
-        System.out.println("You found the correct number!");
-    }
-
-
-    private static int getRandomNumber() {
-        Random rand = new Random();
-        int res = rand.nextInt(upperBound - lowerBound);
-        res += lowerBound;
-        return res;
-    }
-
-    private static int getInput() {
-        Scanner scan = new Scanner(System.in);
-        return Integer.parseInt(scan.next());
+        PrintPrime();
     }
 }
 
