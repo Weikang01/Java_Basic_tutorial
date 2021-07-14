@@ -12,7 +12,5 @@ public class URLDemo01 {
         System.out.println(url.getPath());
         System.out.println(url.getFile());
         System.out.println(url.getQuery());
-
-
     }
 }
